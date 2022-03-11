@@ -2,6 +2,7 @@ package org.launchcode.techjobs.console;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -60,10 +61,10 @@ public class TechJobs {
 
                 // What is their search term?
                 System.out.println("\nSearch term: ");
-                String searchTerm = in.nextLine();
+                String searchTerm = in.nextLine().toLowerCase();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not yet implemented.");
+                    printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -130,7 +131,7 @@ public class TechJobs {
                 for(int i = 0; i  < jobFields.length; i++){
                     System.out.println(jobFields[i] + ": " + jobValues[i]);
                 }
-                System.out.println("------------------------------");
+                System.out.println("------------------------------\n\n");
             }
         }
 
