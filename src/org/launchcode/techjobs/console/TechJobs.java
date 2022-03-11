@@ -49,6 +49,8 @@ public class TechJobs {
                     for (String item : results) {
                         System.out.println(item);
                     }
+
+
                 }
 
             } else { // choice is "search"
@@ -110,7 +112,39 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        /*
+         position type: Data Scientist / Business Intelligence
+         name: Sr. IT Analyst (Data/BI)
+         employer: Bull Moose Industries
+         location: Saint Louis
+         core competency: Statistical Analysis
+         */
+        if(someJobs.size() == 0){
+            System.out.println("There are no jobs by this search criteria ");
 
-        System.out.println("printJobs is not implemented yet");
+        }else {
+            for(HashMap<String, String> job : someJobs){
+                String[] jobFields = job.keySet().toArray(new String[job.size()]);
+                String[] jobValues = job.values().toArray(new String[job.size()]);
+
+                for(int i = 0; i  < jobFields.length; i++){
+                    System.out.println(jobFields[i] + ": " + jobValues[i]);
+                }
+                System.out.println("------------------------------");
+            }
+        }
+
+
+//        if(results.size() == 0 ){
+//            System.out.println("There are no jobs with this %s"+columnChoice);
+//        }else{
+//            System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
+//
+//            // Print list of skills, employers, etc
+//            for (String item : results) {
+//                System.out.println(item);
+//            }
+//        }
+//        System.out.println("printJobs is not implemented yet");
     }
 }
